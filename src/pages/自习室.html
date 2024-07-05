@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页自习室</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .video-container {
+            width: 80%;
+            position: relative;
+        }
+
+        #videoPlayer {
+            width: 100%;
+            height: auto;
+        }
+
+        #danmuContainer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .input-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            width: 80%;
+        }
+
+        #danmuInput {
+            flex: 1;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video id="videoPlayer" controls>
+            <source src="path_to_your_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div id="danmuContainer"></div>
+    </div>
+    <div class="input-container">
+        <input type="text" id="danmuInput" placeholder="发送弹幕">
+        <button id="sendDanmu">发送</button>
+    </div>
+    <script>
+        document.getElementById('sendDanmu').addEventListener('click', function() {
+            const danmuText = document.getElementById('danmuInput').value;
+            if (danmuText) {
+                const danmuContainer = document.getElementById('danmuContainer');
+                const danmuElement = document.createElement('div');
+                danmuElement.textContent = danmuText;
+                danmuElement.style.position = 'absolute';
+                danmuElement.style.left = '100%';
+                danmuElement.style.whiteSpace = 'nowrap';
+                danmuElement.style.color = '#fff';
+                danmuElement.style.fontSize = '24px';
+                danmuElement.style.textShadow = '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000';
+                danmuContainer.appendChild(danmuElement);
+
+                const videoPlayer = document.getElementById('videoPlayer');
+                const videoWidth = videoPlayer.clientWidth;
+                const duration = 10000; // 10 seconds
+                const startTime = Date.now();
+
+                function updateDanmuPosition() {
+                    const elapsedTime = Date.now() - startTime;
+                    const newPosition = videoWidth - (elapsedTime / duration) * videoWidth;
+                    danmuElement.style.left = `${newPosition}px`;
+                    if (newPosition > -danmuElement.clientWidth) {
+                        requestAnimationFrame(updateDanmuPosition);
+                    } else {
+                        danmuContainer.removeChild(danmuElement);
+                    }
+                }
+
+                updateDanmuPosition();
+            }
+        });
+    </script>
+</body>
+</html>

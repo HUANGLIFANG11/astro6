@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>今天也要学</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background-image: url("https://wx3.sinaimg.cn/mw690/d315af46ly1hohwv7q5lhj20u00mi76k.jpg"); 
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                font-family: Arial, sans-serif;
+            }
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+            .main-image {
+                position: relative;
+                width: 80%;
+                max-width: 800px;
+                margin-bottom: 20px;
+            }
+            .main-image img {
+                width: 100%;
+                display: block;
+            }
+            .video-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 60%;
+                max-width: 600px;
+            }
+            .video-container video {
+                width: 100%;
+                display: block;
+            }
+            .card-container {
+                display: flex;
+                justify-content: space-around;
+                width: 100%;
+                max-width: 1200px;
+            }
+            .card {
+                width: 20%;
+                padding: 20px;
+                background-color: #fff;
+                border: 2px solid pink;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                cursor: pointer;
+            }
+            .navbar {
+                background-color: rgba(255, 255, 255, 0.8);
+                padding: 10px;
+                border-bottom-right-radius: 10px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                text-align: left;
+            }
+            .navbar a {
+                margin-right: 10px;
+                text-decoration: none;
+                color: #333;
+            }
+            .content {
+                display: none;
+                width: 80%;
+                max-width: 800px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #fff;
+                border: 2px solid pink;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            .carousel-container {
+                width: 80%;
+                max-width: 800px;
+                overflow: hidden;
+                position: relative;
+                margin: 20px auto;
+            }
+            .carousel {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+            }
+            .carousel a {
+                display: block;
+                width: 100%;
+                flex-shrink: 0;
+                position: relative;
+            }
+            .carousel img {
+                width: 100%;
+                height: auto;
+            }
+            .carousel .caption {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                color: white;
+                padding: 10px;
+                text-align: center;
+            }
+            .footer {
+                background-color: rgba(255, 255, 255, 0.8);
+                padding: 10px;
+                border-top-left-radius: 10px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                text-align: center;
+                margin-top: 20px;
+            }
+            .site-intro {
+                text-align: center;
+                margin: 20px 0;
+                color: #FF6347; 
+                font-size: 24px; 
+                font-weight: bold; 
+                text-shadow: 1px 1px 2px #000; 
+            }
+        </style>
+        <script>
+        
+        </script>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="/">首页</a>
+            <a href="/notes/">万能模板</a>
+            <a href="/China/">博主分类</a>
+            <a href="/about/">资料领取</a>
+        </div>
+        <div class="site-intro">
+            欢迎来到“今天也要学”个人网站！致力于收集全网资源提供高质量的学习资源和工具，帮助您在学习的道路上不断进步。
+        </div>
+        <div class="container">
+            <div class="main-image">
+                <img
+                    src="https://wx4.sinaimg.cn/mw690/d315af46ly1hohwv6dn7rj20u00mhn0n.jpg"
+                    alt="Main Image"
+                />
+                <div class="video-container">
+                    <video controls>
+                        <source
+                            src="https://www.bilibili.com/video/BV1oC411G7FB/?spm_id_from=333.337.search-card.all.click"
+                            type="video/mp4"
+                        />
+                    </video>
+                </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel" id="carousel">
+                    <a href="博主分类.html">
+                        <img src="https://wx1.sinaimg.cn/mw690/640c032aly1hq2at4j4snj20tz0lq41j.jpg" alt="博主分类" />
+                        <div class="caption">博主分类</div>
+                    </a>
+                    <a href="万能模板.html">
+                        <img src="https://wx1.sinaimg.cn/mw690/640c032aly1hq2at4ngmbj20u00migr8.jpg" alt="万能模板" />
+                        <div class="caption">万能模板</div>
+                    </a>
+                    <a href="自习室.html">
+                        <img src="https://wx4.sinaimg.cn/mw690/640c032aly1hq2at4ewlsj20j60asaas.jpg" alt="自习室" />
+                        <div class="caption">自习室</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>© 2024爱吃香菜版权所有.</p>
+        </div>
+    </body>
+    
+    <script>
+        const carousel = document.getElementById("carousel");
+        let index = 0;
+        const totalImages = carousel.children.length;
+
+        function slide() {
+            index++;
+            if (index >= totalImages) {
+                index = 0;
+            }
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        setInterval(slide, 2000); 
+    </script>
+</html>
